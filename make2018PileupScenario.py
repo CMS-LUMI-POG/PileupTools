@@ -20,6 +20,12 @@
 # for each fill if requested below, so you can check that the interpolation looks
 # reasonable.
 
+# There is usually a crossing angle change when leveling ends, which means
+# that the fill spends more time near 1.5 x 10^34 than it would otherwise,
+# resulting in a bump in the pileup profile. To fix this, we simply discard
+# any lumisections after the end of leveling when the luminosity is higher
+# than it was at the end of leveling.
+
 # A few assumptions made and effects neglected:
 # - Bunch-to-bunch variation is neglected; we assume all bunches have the same
 # luminosity
@@ -79,6 +85,12 @@ oldLevelTarget = 15000
 h = r.TH1F("h", "Pileup", 100, 0, 100)
 
 rand = r.TRandom3(71556)
+
+# Function for smearing
+gf = r.TF1("g", "gaus", -10, 10)
+gf.SetParameter(0,1/math.sqrt(2*math.pi))
+gf.SetParameter(1,0)
+gf.SetParameter(2,2)
 
 for fill in fillList:
     lumiFileName = "lumi_%d.csv" % (fill)
@@ -214,6 +226,11 @@ for fill in fillList:
         else:
             l = fillData[i]["lumi"]
 
+        # Check to see if this is a LS after the end of leveling but with lumi
+        # higher than the end of leveling, in which case skip it.
+        if thisFillLeveled and (i > endLevelingLS) and (l > curLumi):
+            continue
+
         # If the unleveled lumi is too big, relevel it. Add some fuzz to it too.
         if l > levelTarget:
             l = levelTarget
@@ -228,7 +245,10 @@ for fill in fillList:
             pileup *= pileupScaleFactor
         
         #print "run %d ls %d corr lumi %.2f pileup %.2f" % (fillData[i]["run"], fillData[i]["ls"], l, pileup)
-        h.Fill(pileup)
+        # Apply smearing
+        # h.Fill(pileup)
+        for x in range(-10, 11):
+            h.Fill(pileup+x, gf.Eval(x))
 
     # Done with this fill
 
@@ -239,12 +259,12 @@ h.SetTitle("Projected 2018 luminosity profile")
 h.GetXaxis().SetTitle("Pileup")
 h.GetYaxis().SetTitle("Event fraction")
 h.GetYaxis().SetTitleOffset(1.4)
-c1.Print("pileup2018.png")
+c1.Print("pileup2018smeared.png")
 
 binContents=[]
 for i in range(1,101):
     binContents.append(h.GetBinContent(i))
 print binContents
 
-#while(1):
-#    pass
+while(1):
+    pass
