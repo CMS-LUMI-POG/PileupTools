@@ -4,6 +4,7 @@ import sys
 import os
 import csv
 import json
+import argparse
 
 # This script will select an input JSON file and return the subset of that file for which the pileup is less
 # than a specified value. Note that no selection on STABLE BEAMS or anything else is applied, so if you want
@@ -29,11 +30,15 @@ normtag_file = "/cvmfs/cms-bril.cern.ch/cms-lumi-pog/Normtags/normtag_PHYSICS.js
 # number and the value is the set of lumisections present for that run.
 keep_ls = {}
 
-# Get input file name.
-if (len(sys.argv) < 2):
-    print "Usage: "+sys.argv[0]+" <input file>"
-    sys.exit(1)
-infile = sys.argv[1]
+# Parse input arguments.
+parser = argparse.ArgumentParser()
+parser.add_argument('-t', '--threshold', metavar='THRESHOLD', help='Set threshold value of pileup below which lumisections will be kept.', type=float)
+parser.add_argument('infile', help='Input JSON file to process.')
+args = parser.parse_args()
+
+infile = args.infile
+if args.threshold:
+    pileup_threshold = args.threshold
 
 # Execute brilcalc using the input JSON file.
 brilcalc_output="temp_brilcalc.csv"
