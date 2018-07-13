@@ -14,6 +14,10 @@ import json
 # assumed to be the bottom of emittance scans rather than any actual useful low-pileup data. If you actually
 # want to include these go ahead and change the logic in add_to_list below.
 
+# This requires that brilcalc be in your environment. If you're running on lxplus (recommended),
+# export PATH=$HOME/.local/bin:/afs/cern.ch/cms/lumi/brilconda-1.1.7/bin:$PATH
+# Otherwise, see the instructions in https://cms-service-lumi.web.cern.ch/cms-service-lumi/brilwsdoc.html
+
 # Specified value of pileup to keep.
 pileup_threshold = 5.0
 
