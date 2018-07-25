@@ -81,10 +81,10 @@ def add_to_list(run, startLS, lastLS):
     # not actually really useful for low-pileup studies. So if there's just one LS in the period, go ahead and
     # throw it out.
     if (startLS != lastLS):
-        if not str(lastRun) in output_json:
-            output_json[str(lastRun)] = [[startLS, lastLS]]
+        if not run in output_json:
+            output_json[run] = [[startLS, lastLS]]
         else:
-            output_json[str(lastRun)].append([startLS, lastLS])
+            output_json[run].append([startLS, lastLS])
     
 for r in sorted(keep_ls.keys()):
     for ls in sorted(keep_ls[r]):
