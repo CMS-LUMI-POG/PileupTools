@@ -8,6 +8,8 @@ At the moment it contains:
 
 * `make2018PileupScenario.py`: a script for making the preliminary 2018 pileup scenario. This takes the 2017 data and "un-levels" it in order to get an estimation of the 2018 pileup.
 
+* `makeBXPlot.py`: a script to illustrate the differnce between the true bunch-by-bunch distribution of luminosity and the Gaussian approximation
+
 * `select_low_pileup.py`: this script takes an input JSON, selects only lumisections with a pileup below a specified threshold (5.0 by default), and writes out the resulting list of lumisections.
 
 * `smearPileupPoisson.py`: this script shows the difference between the "true" and "observed" pileup distributions by applying a Poisson smearing to the former.
