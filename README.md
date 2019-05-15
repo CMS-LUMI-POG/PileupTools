@@ -10,6 +10,8 @@ At the moment it contains:
 
 * `select_low_pileup.py`: this script takes an input JSON, selects only lumisections with a pileup below a specified threshold (5.0 by default), and writes out the resulting list of lumisections.
 
+* `smearPileupPoisson.py`: this script shows the difference between the "true" and "observed" pileup distributions by applying a Poisson smearing to the former.
+
 * `smearPileupSummer2018.py`: this takes the 2018 pileup scenario using the extrapolation from the current (as of June 2018) data from Andrea and applies a smearing to get a final distribution.
 
 Please see the scripts themselves for further documentation.
