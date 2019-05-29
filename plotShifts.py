@@ -3,11 +3,18 @@
 # This plot script takes the output from makePileupHisto.py and compares the distribution with the nominal
 # cross section to those where it has been systematically shifted.
 
+import os, argparse
 import ROOT as r
 
 scale_factor = 23.31*1e-6
 
-f = r.TFile("pileup_fixed_shifts.root")
+parser = argparse.ArgumentParser(description="Make plots comparing pileup distribution with systematically shifted cross section to nominal.",
+                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument("inputFile", help="ROOT file containing histograms from makePileupHisto.py")
+parser.add_argument("-o", "--output-file", help="Output plot file name", default="shifts.png")
+args = parser.parse_args()
+
+f = r.TFile(args.inputFile)
 h0 = f.Get("pileup")
 h0.Scale(scale_factor)
 
@@ -64,8 +71,9 @@ for i in range(6):
     all_h.append(hdiv)
     all_l.append(l)
 
-c1.Print("shifts1.png")
-c2.Print("shifts2.png")
+outfile_base, outfile_ext = os.path.splitext(args.output_file)
+c1.Print(outfile_base+"_1"+outfile_ext)
+c1.Print(outfile_base+"_2"+outfile_ext)
 
 print "Press ENTER to exit..."
 raw_input()
