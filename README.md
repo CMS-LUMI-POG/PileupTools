@@ -6,9 +6,9 @@ At the moment it contains:
 
 ### Tools for 2017-18 UL scenarios
 
-* `divideJSON.py`: Takes a certification JSON and divides it into smaller chunks, so they can be run in parallel.
+* `splitJSON.py`: Takes a certification JSON and divides it into smaller chunks, so they can be run in parallel.
 
-* `processMultiFiles.py`: Takes the scripts produced by `divideJSON.py` and invokes brilcalc to produce the per-bunch luminosity for each.
+* `processMultiFiles.py`: Takes the scripts produced by `splitJSON.py` and invokes brilcalc to produce the per-bunch luminosity for each.
 
 * `makePileupHisto.py`: Takes the brilcalc output files produced by `processMultiFiles.py` and generates the final histogram containing the bunch-by-bunch pileup distribution.
 
