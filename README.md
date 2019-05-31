@@ -18,7 +18,7 @@ At the moment it contains:
 
 * `plotShifts.py`: Plots the difference between the pileup scenario generated with the nominal inelastic cross section with the systematically shifted scenarios.
 
-See also `Results2017UL/` for the results of the 2017 UL scenario generation and some more documentation on the details of this process.
+The `Results2017UL/` and `Results2018UL/` contain the results for the generation of the 2017 and 2018 UL scenarios and some more specific documentation on the details of the process.
 
 ### Tools for older pileup scenarios
 

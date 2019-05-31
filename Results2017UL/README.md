@@ -2,7 +2,7 @@ This contains some of the results for the generation of the 2017 ultra-legacy pi
 
 * Start with the golden certification JSON, `Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt`.
 
-* Use `divideJSON.py` to split into smaller pieces for processing.
+* Use `splitJSON.py` to split into smaller pieces for processing.
 
 * Use `processMultiFiles.py` to actually run brilcalc on each of the individual pieces, using the physics JSON file `/cvmfs/cms-bril.cern.ch/cms-lumi-pog/Normtags/normtag_PHYSICS.json`.
 
