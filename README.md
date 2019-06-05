@@ -1,6 +1,6 @@
 # PileupTools
 
-This repository contains tools for doing various pileup studies. In general the individual scripts should have some documentation built in so you can run with the `-h` flag to see the expected arguments, options, etc.
+This repository contains tools for doing various pileup studies. In general the individual scripts should have some documentation built in so you can run with the `-h` flag to see the expected arguments, options, etc. Also, for more details on the individual pileup scenarios available, have a look at the twiki page <https://twiki.cern.ch/twiki/bin/view/CMS/PileupScenariosRun2>.
 
 At the moment it contains:
 
@@ -20,11 +20,13 @@ At the moment it contains:
 
 The `Results2017UL/` and `Results2018UL/` contain the results for the generation of the 2017 and 2018 UL scenarios and some more specific documentation on the details of the process.
 
-### Tools for older pileup scenarios
+### Tools for other pileup scenarios
 
-* `smearPileupSummer2018.py`: This takes the 2018 pileup scenario using the extrapolation from the current (as of June 2018) data from Andrea and applies a smearing to get a final distribution.
+* `makeFlatRun3Scenario.py`: This makes the initial Run 3 scenario using a flat distribution of pileup from 55 to 75.
 
-* `make2018PileupScenario.py`: A script for making the preliminary 2018 pileup scenario. This takes the 2017 data and "un-levels" it in order to get an estimation of the 2018 pileup.
+* `smearPileupSummer2018.py`: This script was used for making the mid-2018 pileup scenario. It works by using the extrapolation from the data through June 2018 from Andrea and applying a smearing to get a final distribution.
+
+* `make2018PileupScenario.py`: This script was used for making the preliminary 2018 pileup scenario. This takes the 2017 data and "un-levels" it in order to get an estimation of the 2018 pileup.
 
 ### Other tools
 
