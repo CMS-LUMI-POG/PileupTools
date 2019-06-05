@@ -6,7 +6,8 @@
 import os, argparse
 import ROOT as r
 
-scale_factor = 23.31*1e-6
+# convert to /pb
+scale_factor = 1e-6
 
 parser = argparse.ArgumentParser(description="Make plots comparing pileup distribution with systematically shifted cross section to nominal.",
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -73,7 +74,7 @@ for i in range(6):
 
 outfile_base, outfile_ext = os.path.splitext(args.output_file)
 c1.Print(outfile_base+"_1"+outfile_ext)
-c1.Print(outfile_base+"_2"+outfile_ext)
+c2.Print(outfile_base+"_2"+outfile_ext)
 
 print "Press ENTER to exit..."
 raw_input()

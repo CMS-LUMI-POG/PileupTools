@@ -22,8 +22,8 @@ h1.Scale(1e-6)
 
 f2 = r.TFile(args.inputFileBunchByBunch)
 h2 = f2.Get("pileup")
-# the pileup distributions from makePileupHisto.py also need the factor of LS length to get recorded lumi
-h2.Scale(23.31*1e-6)
+# as above
+h2.Scale(1e-6)
 
 r.gStyle.SetOptStat(0)
 c1 = r.TCanvas("c1", "c1", 1000, 500)

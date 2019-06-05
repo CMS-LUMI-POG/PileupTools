@@ -5,9 +5,6 @@
 # histograms in which the inelastic cross section has been systematically shifted (warning: this is much
 # slower).
 
-# Note: you have to scale this histogram by the length of a lumisection (23.31) in order to get the recorded
-# luminosity.
-
 import os, sys, csv, argparse, glob, re
 import ROOT as r
 
@@ -25,6 +22,7 @@ outfile_name = args.output_file
 outfile_name_parts = os.path.splitext(outfile_name)
 do_syst = args.systematic_shifts
 write_part_files = args.verbose
+ls_length = 24.95e-9*3564*2**18
 
 infiles = []
 for f in args.inputFiles:
@@ -99,6 +97,8 @@ for i, infile_name in enumerate(infiles):
             if (rows_processed % 1000 == 0):
                 print "Processed",rows_processed,"rows"
 
+    # Scale by lumi section length to get recorded luminosity.
+    h1.Scale(ls_length)
     h.Add(h1)
 
     if write_part_files:
@@ -107,12 +107,13 @@ for i, infile_name in enumerate(infiles):
         f1.Close()
     del h1
 
-    print "Found %.3f recorded lumi (integral is %.3f)" % (tot_recorded*23.31/1e9, h.Integral()*23.31/1e9)
+    print "Found %.3f /fb recorded lumi (integral is %.3f /fb)" % (tot_recorded*ls_length/1e9, h.Integral()/1e9)
     i += 1
 
 f = r.TFile(outfile_name, "RECREATE")
 h.Write()
 if do_syst:
     for i in range(n_syst):
+        hshift[i].Scale(ls_length)
         hshift[i].Write()
 f.Close()
