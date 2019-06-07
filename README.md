@@ -18,7 +18,9 @@ At the moment it contains:
 
 * `plotShifts.py`: Plots the difference between the pileup scenario generated with the nominal inelastic cross section with the systematically shifted scenarios.
 
-The `Results2017UL/` and `Results2018UL/` contain the results for the generation of the 2017 and 2018 UL scenarios and some more specific documentation on the details of the process.
+* `makeBunchDistributions.py`: This script takes the brilcalc output files and generates a set of histograms, one for each fill, with the relative bunch-by-bunch distributions for each fill. See the README in `Results2018UL/` for more details.
+
+The directories `Results2017UL/` and `Results2018UL/` contain the results for the generation of the 2017 and 2018 UL scenarios and some more specific documentation on the details of the process.
 
 ### Tools for other pileup scenarios
 
