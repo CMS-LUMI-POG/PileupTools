@@ -1,6 +1,6 @@
 # PileupTools
 
-This repository contains tools for doing various pileup studies. In general the individual scripts should have some documentation built in so you can run with the `-h` flag to see the expected arguments, options, etc. Also, for more details on the individual pileup scenarios available, have a look at the twiki page <https://twiki.cern.ch/twiki/bin/view/CMS/PileupScenariosRun2>.
+This repository contains tools for doing various pileup studies. In general the individual scripts should have some documentation built in so you can run with the `-h` flag to see the expected arguments, options, etc.; there should also be comments at the top of the script which describe it. See also the TWiki pages <https://twiki.cern.ch/twiki/bin/view/CMS/PileupScenariosRun2> for more details on the individual pileup scenarios available and <https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJSONFileforData> for information on using `pileupCalc`.
 
 At the moment it contains:
 
@@ -18,7 +18,7 @@ At the moment it contains:
 
 * `plotShifts.py`: Plots the difference between the pileup scenario generated with the nominal inelastic cross section with the systematically shifted scenarios.
 
-* `makeBunchDistributions.py`: This script takes the brilcalc output files and generates a set of histograms, one for each fill, with the relative bunch-by-bunch distributions for each fill. See the README in `Results2018UL/` for more details.
+* `makeBunchDistributions.py`: This script takes the brilcalc output files and generates a set of histograms, one for each fill, with the relative bunch-by-bunch distributions for each fill. See below for more details.
 
 The directories `Results2017UL/` and `Results2018UL/` contain the results for the generation of the 2017 and 2018 UL scenarios and some more specific documentation on the details of the process.
 
@@ -40,5 +40,13 @@ The directories `Results2017UL/` and `Results2018UL/` contain the results for th
 
 * `smearPileupPoisson.py`: This script shows the difference between the "true" and "observed" pileup distributions by applying a Poisson smearing to the former.
 
-Please see the scripts themselves for further documentation.
+### Relative bunch distributions
 
+The relative bunch distribution files in `Results2017UL` and `Results2018UL` are intended for use in the new version of pileupCalc currently being developed. These files contains one histogram per fill, named `bx_FILL`, where `FILL` is the fill number, and a `std::map<std::string, std::string>`, `run_map`, for translating run numbers (as present in the pileup JSON file) to fill numbers. In pyROOT, it can be used simply as follows:
+
+```python
+>>> f = r.TFile("bunch_distributions_2018.root")
+>>> run_map = f.Get("run_map")
+>>> run_map["322068"]
+'7117'
+```
