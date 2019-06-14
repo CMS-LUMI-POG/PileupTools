@@ -16,5 +16,5 @@ while (1):
     print "Processing json file",i,"please wait..."
     outfile_name = outfile_template % (i)
     if not os.path.exists(outfile_name):
-        os.system('brilcalc lumi --xing -b "STABLE BEAMS" -u hz/ub -i '+json_name+' --normtag /cvmfs/cms-bril.cern.ch/cms-lumi-pog/Normtags/normtag_PHYSICS.json --xingTr 0.2 -o '+outfile_name)
+        os.system('brilcalc lumi --xing -b "STABLE BEAMS" -u hz/ub -i '+json_name+' --normtag /cvmfs/cms-bril.cern.ch/cms-lumi-pog/Normtags/normtag_PHYSICS.json --xingTr 0.1 -o '+outfile_name)
     i += 1

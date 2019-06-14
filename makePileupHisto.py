@@ -8,7 +8,7 @@
 import os, sys, csv, argparse, glob, re
 import ROOT as r
 
-parser = argparse.ArgumentParser(description="Build a pileup histogram distribution from the given brilcalc output files.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser = argparse.ArgumentParser(description="Build a pileup distribution histogram from the given brilcalc output files.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("inputFiles", nargs="*", help="Input brilcalc CSV files", default=["brilcalc_lumi_*.csv"])
 parser.add_argument("-o", "--output-file", help="Output file name", default="pileup.root")
 parser.add_argument("-x", "--cross-section", help="Inelastic pileup cross section in ub", type=int, default=69200)
@@ -32,6 +32,7 @@ for f in args.inputFiles:
         infiles.append(f)
 
 # the problem of how to sort filenames (probably) with numbers in them is surprisingly tricky!
+# this trick splits them into non-digit parts, digit parts, non-digit, etc. and then sorts them as tuples
 def sort_function(x):
     l = re.split("(\d+)", x)
     return [int(i) if i.isdigit() else i for i in l]

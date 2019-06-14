@@ -8,7 +8,7 @@ At the moment it contains:
 
 * `splitJSON.py`: Takes a certification JSON and divides it into smaller chunks, so they can be run in parallel.
 
-* `processMultiFiles.py`: Takes the scripts produced by `splitJSON.py` and invokes brilcalc to produce the per-bunch luminosity for each. NOTE: This uses a default bunch threshold of 0.2 (i.e., any bunches with a luminosity less than 0.2 of the maximum individual bunch luminosity will be discarded), which may need to be changed for unusual running conditions.
+* `processMultiFiles.py`: Takes the scripts produced by `splitJSON.py` and invokes brilcalc to produce the per-bunch luminosity for each. NOTE: This uses a default bunch threshold of 0.1 (i.e., any bunches with a luminosity less than 0.1 of the maximum individual bunch luminosity will be discarded), which may need to be changed for unusual running conditions.
 
 * `makePileupHisto.py`: Takes the brilcalc output files produced by `processMultiFiles.py` and generates the final histogram containing the bunch-by-bunch pileup distribution.
 
