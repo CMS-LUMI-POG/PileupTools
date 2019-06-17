@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # This plot script takes the output from makePileupHisto.py and compares the distribution with the nominal
 # cross section to those where it has been systematically shifted.

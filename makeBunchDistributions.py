@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # This script takes the brilcalc output files produced by, for example, processMultiFiles.py (or just a single
 # file if you made a single monolithic file) and then makes a file containing the per-fill relative bunch

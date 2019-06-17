@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # This is a simple script which shows what the "observed" distribution
 # looks like by taking the "true" distribution and applying Poisson

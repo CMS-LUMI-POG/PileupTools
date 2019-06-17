@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # This plot script compares the "standard" distribution from pileupCalc to the true bunch-by-bunch
 # distribution obtained by using makePileupHisto.py. Note that makePileupHisto.py has the bin centers on whole

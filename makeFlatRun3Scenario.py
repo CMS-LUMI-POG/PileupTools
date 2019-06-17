@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # The same as make_cfi_file.py but makes a flat distribution from 55 to 75 (used for the initial Run 3 pileup
 # scenario).

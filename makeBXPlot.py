@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # This script makes some plots illustrating the difference between the "standard" approximation that
 # pileupCalc uses of estimating the per-bunch distribution as a Gaussian and the actual per-bunch

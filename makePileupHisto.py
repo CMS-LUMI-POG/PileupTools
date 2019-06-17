@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # This script takes the brilcalc output files produced by, for example, processMultiFiles.py and then extracts
 # the bunch-by-bunch pileup from it in order to fill a histogram. By default (see below), it can also produce

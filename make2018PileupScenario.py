@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # This script is used to generate the 2018 pileup scenario. It does so as follows:
 # 1) Take all of the fills in Run2017F (selected as a period of stable, high-

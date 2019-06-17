@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # This file takes the pileup distribution produced by makePileupHisto.py and then produces the appropriate cfi
 # file corresponding to it.
