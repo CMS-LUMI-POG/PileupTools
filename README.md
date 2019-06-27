@@ -34,6 +34,10 @@ The directories `Results2017UL/` and `Results2018UL/` contain the results for th
 
 * `averagePileup.py`: A very simple script that will take a CSV output file from brilcalc and compute the luminosity-weighted average pileup in that file.
 
+* `checkJSONSubset.py`: A script which will verify that a given JSON is a subset of another. Used to check for inconsistencies between the DCSOnly JSON and the golden JSON files (which should be, but are not always, a strict subset of the DCSOnly file).
+
+* `comparePileupJSON.py`: A script to look for discrepancies between two pileup JSON files within a given tolerance.
+
 * `make_cfi_file.py`: Takes a histogram of the pileup distribution, as produced by `makePileupHisto.py` or `pileupCalc.py`, and generates the corresponding cfi file that can be used in CMSSW for MC generation.
 
 * `select_low_pileup.py`: This script takes an input JSON, selects only lumisections with a pileup below a specified threshold (5.0 by default), and writes out the resulting list of lumisections.
