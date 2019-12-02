@@ -15,7 +15,7 @@ infile = sys.argv[1]
 
 f = r.TFile(infile)
 h = f.Get("pileup")
-h.Scale(23.31*1e-6)
+h.Scale(1e-6)
 
 final_nums = []
 final_weights = []
