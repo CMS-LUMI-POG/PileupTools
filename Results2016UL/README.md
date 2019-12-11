@@ -23,6 +23,6 @@ The ROOT files `pileup_2016BF.root` and `pileup_2016GH.root` contain the final p
 
 For this year I didn't make the comparison plots, since it didn't seem that we needed them, but you can produce them as usual using `plotStandardDifference.py` for the comparison with the regular pileupCalc output, `plotShifts.py` to plot the systematic shifts, and `makeBXPlot.py` to make the sample BX disribution.
 
-There is a simple script `plotEras.py` which plots both eras on the same plot for comparison. `pileup_2016_eras.png` is the result.
+There is a simple script `plotEras.py` which does some comparison between the results for each period and the overall distribution, and shows the ratios that would be necessary from reweighting from the overall to the individual parts. `pileup_2016_eras.png` and `ratios_2016.png` are the result.
 
 Finally, the ROOT file `bunch_distributions_2016.root` contains the relative bunch-by-bunch luminosities on a fill-by-fill basis, as produced by `makeBunchDistributions.py` (which you can consult for futher documentation). See the main README for more information on how to use this file.
