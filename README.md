@@ -26,9 +26,9 @@ The directories `Results2017UL/` and `Results2018UL/` contain the results for th
 
 * `makeFlatRun3Scenario.py`: This makes the initial Run 3 scenario using a flat distribution of pileup from 55 to 75.
 
-* `smearPileupSummer2018.py`: This script was used for making the mid-2018 pileup scenario. It works by using the extrapolation from the data through June 2018 from Andrea and applying a smearing to get a final distribution.
+* `smearPileupSummer2018.py`: This script was used for making the mid-2018 pileup scenario. It works by using the extrapolation from the data through June 2018 from Andrea and applying a smearing to get a final distribution. The resulting plot is `PileupSummer2018.png`.
 
-* `make2018PileupScenario.py`: This script was used for making the preliminary 2018 pileup scenario. This takes the 2017 data and "un-levels" it in order to get an estimation of the 2018 pileup.
+* `make2018PileupScenario.py`: This script was used for making the preliminary 2018 pileup scenario. This takes the 2017 data and "un-levels" it in order to get an estimation of the 2018 pileup. The resulting plots are found in `pileup2018.png` (raw), `pileup2018cleaned.png` (removing the spike caused by leveling), `pileup2018smeared.png` (includes smearing of the resulting pileup), and `pileupFill6358.png` (same procedure but using the data only from fill 6358). The fits to "un-level" individual fills are stored in the `LevelingFits2017/` directory.
 
 ### Other tools
 
@@ -42,7 +42,7 @@ The directories `Results2017UL/` and `Results2018UL/` contain the results for th
 
 * `select_low_pileup.py`: This script takes an input JSON, selects only lumisections with a pileup below a specified threshold (5.0 by default), and writes out the resulting list of lumisections.
 
-* `smearPileupPoisson.py`: This script shows the difference between the "true" and "observed" pileup distributions by applying a Poisson smearing to the former.
+* `smearPileupPoisson.py`: This script shows the difference between the "true" and "observed" pileup distributions by applying a Poisson smearing to the former. The resulting plot is shown in `pileup_smearing.png`.
 
 ### Relative bunch distributions
 
